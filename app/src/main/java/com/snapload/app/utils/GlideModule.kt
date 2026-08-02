@@ -22,7 +22,7 @@ class SnapLoadGlideModule : AppGlideModule() {
         builder.setMemoryCache(LruResourceCache(memoryCacheSizeBytes))
 
         // 100 MB قرص للـ cache
-        val diskCacheSizeBytes = 1024 * 1024 * 100
+        val diskCacheSizeBytes = 1024L * 1024L * 100L
         builder.setDiskCache(
             InternalCacheDiskCacheFactory(context, diskCacheSizeBytes)
         )
