@@ -17,7 +17,11 @@ import com.snapload.app.data.network.NetworkResult
 import com.snapload.app.data.repository.DownloadRepository
 import com.snapload.app.databinding.FragmentHomeBinding
 import com.snapload.app.ui.quality.QualityBottomSheet
-import com.snapload.app.utils.*
+import com.snapload.app.utils.gone
+import com.snapload.app.utils.show
+import com.snapload.app.utils.showToast
+import com.snapload.app.utils.getFromClipboard
+import com.snapload.app.utils.toFormattedDuration
 
 class HomeFragment : Fragment() {
 
@@ -46,6 +50,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupListeners() {
+        // FIX: XML uses id="btnAnalyze" ✓ (already correct)
         binding.btnAnalyze.setOnClickListener {
             val url = binding.etUrl.text.toString().trim()
             if (url.isEmpty()) {
@@ -55,7 +60,8 @@ class HomeFragment : Fragment() {
             viewModel.fetchVideoInfo(url)
         }
 
-        binding.btnPasteAnalyze.setOnClickListener {
+        // FIX: XML uses id="btnPasteAndProcess", not "btnPasteAnalyze"
+        binding.btnPasteAndProcess.setOnClickListener {
             val clipText = requireContext().getFromClipboard()
             if (clipText.isNullOrEmpty()) {
                 requireContext().showToast(getString(R.string.clipboard_empty))
@@ -65,14 +71,16 @@ class HomeFragment : Fragment() {
             viewModel.fetchVideoInfo(clipText)
         }
 
-        binding.btnPaste.setOnClickListener {
+        // FIX: XML uses id="ibPaste", not "btnPaste"
+        binding.ibPaste.setOnClickListener {
             val clipText = requireContext().getFromClipboard()
             if (!clipText.isNullOrEmpty()) {
                 binding.etUrl.setText(clipText)
             }
         }
 
-        binding.btnClear.setOnClickListener {
+        // FIX: XML uses id="ibClear", not "btnClear"
+        binding.ibClear.setOnClickListener {
             binding.etUrl.setText("")
             viewModel.clearVideoInfo()
             binding.cardVideoInfo.gone()
@@ -97,7 +105,8 @@ class HomeFragment : Fragment() {
             showQualitySheet(info)
         }
 
-        binding.settingsIcon.setOnClickListener {
+        // FIX: XML uses id="ibSettings", not "settingsIcon"
+        binding.ibSettings.setOnClickListener {
             findNavController().navigate(R.id.action_home_to_settings)
         }
     }
@@ -106,20 +115,22 @@ class HomeFragment : Fragment() {
         viewModel.videoInfo.observe(viewLifecycleOwner) { result ->
             when (result) {
                 null -> {
-                    binding.loadingGroup.gone()
+                    // FIX: XML uses id="layoutLoading", not "loadingGroup"
+                    binding.layoutLoading.gone()
                     binding.cardVideoInfo.gone()
                 }
                 is NetworkResult.Loading -> {
-                    binding.loadingGroup.show()
+                    binding.layoutLoading.show()
                     binding.cardVideoInfo.gone()
-                    binding.tvLoadingText.text = getString(R.string.fetching_video_info)
+                    // FIX: tvLoadingText has no id in XML — text is set in XML already;
+                    //      skip the dynamic setText call to avoid compilation error.
                 }
                 is NetworkResult.Success -> {
-                    binding.loadingGroup.gone()
+                    binding.layoutLoading.gone()
                     displayVideoInfo(result.data)
                 }
                 is NetworkResult.Error -> {
-                    binding.loadingGroup.gone()
+                    binding.layoutLoading.gone()
                     binding.cardVideoInfo.gone()
                     showSnackbar(result.message)
                 }
@@ -151,8 +162,15 @@ class HomeFragment : Fragment() {
     private fun displayVideoInfo(info: VideoInfo) {
         binding.apply {
             tvVideoTitle.text = info.title
-            tvUploader.text = info.uploader
-            tvPlatform.text = info.platform.replaceFirstChar { it.uppercaseChar() }
+            // FIX: tvPlatform not in XML — show "uploader • platform" combined in tvUploader
+            val uploaderText = buildString {
+                if (info.uploader.isNotBlank()) append(info.uploader)
+                if (info.platform.isNotBlank()) {
+                    if (isNotEmpty()) append(" • ")
+                    append(info.platform.replaceFirstChar { it.uppercaseChar() })
+                }
+            }
+            tvUploader.text = uploaderText
             tvDuration.text = (info.duration ?: 0L).toFormattedDuration()
 
             Glide.with(requireContext())
@@ -163,8 +181,12 @@ class HomeFragment : Fragment() {
             val bestVideo = info.formats.filter { it.isVideoAndAudio() || it.isVideoOnly() }
                 .maxByOrNull { it.tbr ?: 0.0 }
             if (bestVideo != null) {
-                tvBestVideoQuality.text = "${bestVideo.quality} • ${bestVideo.ext.uppercase()}"
-                tvBestVideoSize.text = bestVideo.formattedSize()
+                // FIX: tvBestVideoSize not in XML — combine quality + size + ext in tvBestVideoQuality
+                val sizeStr = bestVideo.formattedSize()
+                tvBestVideoQuality.text = buildString {
+                    append("${bestVideo.quality} • ${bestVideo.ext.uppercase()}")
+                    if (sizeStr.isNotEmpty()) append(" • $sizeStr")
+                }
                 btnDownloadVideo.isEnabled = true
             } else {
                 btnDownloadVideo.isEnabled = false
@@ -199,7 +221,8 @@ class HomeFragment : Fragment() {
     }
 
     private fun showQualitySheet(info: VideoInfo) {
-        val sheet = QualityBottomSheet.newInstance(info)
+        val url = viewModel.currentUrl.value ?: ""
+        val sheet = QualityBottomSheet.newInstance(info, url)
         sheet.show(childFragmentManager, QualityBottomSheet.TAG)
     }
 

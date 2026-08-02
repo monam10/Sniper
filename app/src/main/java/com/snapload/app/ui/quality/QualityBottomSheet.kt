@@ -42,6 +42,8 @@ class QualityBottomSheet : BottomSheetDialogFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // FIX: Theme name in XML is "Theme.SnapLoad.BottomSheetDialog"
+        //      Android converts dots → underscores → R.style.Theme_SnapLoad_BottomSheetDialog
         setStyle(STYLE_NORMAL, R.style.Theme_SnapLoad_BottomSheetDialog)
         @Suppress("DEPRECATION")
         videoInfo = arguments?.getSerializable(ARG_VIDEO_INFO) as? VideoInfo ?: return
@@ -61,16 +63,19 @@ class QualityBottomSheet : BottomSheetDialogFragment() {
         setupHeader()
         setupTabs()
         setupAdapter()
-        binding.btnClose.setOnClickListener { dismiss() }
+        // FIX: XML uses id="ibQsClose", not "btnClose"
+        binding.ibQsClose.setOnClickListener { dismiss() }
         binding.btnDownloadAll.setOnClickListener { downloadAll() }
     }
 
     private fun setupHeader() {
-        binding.tvSheetTitle.text = videoInfo.title
+        // FIX: XML uses id="tvQsTitle", not "tvSheetTitle"
+        binding.tvQsTitle.text = videoInfo.title
+        // FIX: XML uses id="ivQsThumbnail", not "ivSheetThumbnail"
         Glide.with(requireContext())
             .load(videoInfo.thumbnail)
             .placeholder(R.drawable.ic_logo)
-            .into(binding.ivSheetThumbnail)
+            .into(binding.ivQsThumbnail)
     }
 
     private fun setupTabs() {
@@ -105,10 +110,10 @@ class QualityBottomSheet : BottomSheetDialogFragment() {
         }
 
         if (formats.isEmpty()) {
-            binding.tvEmptyFormats.show()
+            // FIX: tvEmptyFormats not in XML — show toast and hide list instead
             binding.rvQualities.gone()
+            requireContext().showToast(getString(R.string.no_formats_available))
         } else {
-            binding.tvEmptyFormats.gone()
             binding.rvQualities.show()
             adapter.submitList(formats)
         }

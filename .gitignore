@@ -30,7 +30,6 @@ app/src/main/res/values/strings_generated.xml
 gradle-app.setting
 !gradle-wrapper.jar
 .gradletasknamecache
-gradle/wrapper/gradle-wrapper.properties
 
 # NDK
 *.so
