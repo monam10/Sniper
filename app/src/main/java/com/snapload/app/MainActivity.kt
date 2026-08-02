@@ -21,7 +21,8 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.navHostFragment) as NavHostFragment
         navController = navHostFragment.navController
 
-        binding.bottomNavigationView.setupWithNavController(navController)
+        // FIX: layout uses id="bottomNav" not "bottomNavigationView"
+        binding.bottomNav.setupWithNavController(navController)
     }
 
     override fun onSupportNavigateUp(): Boolean {

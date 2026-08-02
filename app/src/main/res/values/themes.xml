@@ -28,12 +28,17 @@
         <item name="colorPrimary">@color/primary</item>
     </style>
 
-    <!-- BottomSheetDialog Theme -->
-    <style name="Theme.SnapLoad.BottomSheet" parent="Theme.Material3.DayNight.BottomSheetDialog">
+    <!-- BottomSheetDialog Theme (used by QualityBottomSheet) -->
+    <!-- FIX: Added Theme.SnapLoad.BottomSheetDialog which was referenced in QualityBottomSheet.kt
+         but was absent from themes.xml (only Theme.SnapLoad.BottomSheet existed). -->
+    <style name="Theme.SnapLoad.BottomSheetDialog" parent="Theme.Material3.DayNight.BottomSheetDialog">
         <item name="colorPrimary">@color/primary</item>
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="bottomSheetStyle">@style/Widget.SnapLoad.BottomSheet</item>
     </style>
+
+    <!-- Alias kept for backwards compat -->
+    <style name="Theme.SnapLoad.BottomSheet" parent="Theme.SnapLoad.BottomSheetDialog" />
 
     <style name="Widget.SnapLoad.BottomSheet" parent="Widget.Material3.BottomSheet">
         <item name="android:background">@color/surface_dark</item>

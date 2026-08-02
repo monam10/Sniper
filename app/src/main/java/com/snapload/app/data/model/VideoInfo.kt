@@ -2,6 +2,7 @@ package com.snapload.app.data.model
 
 import com.google.gson.annotations.SerializedName
 
+// FIX: Add java.io.Serializable so QualityBottomSheet can pass VideoInfo via Bundle.putSerializable
 data class VideoInfo(
     @SerializedName("title") val title: String = "",
     @SerializedName("thumbnail") val thumbnail: String = "",
@@ -11,8 +12,9 @@ data class VideoInfo(
     @SerializedName("formats") val formats: List<VideoFormat> = emptyList(),
     @SerializedName("direct_url") val directUrl: String? = null,
     @SerializedName("error") val error: String? = null
-)
+) : java.io.Serializable
 
+// FIX: VideoFormat must also be Serializable (it's a field of VideoInfo which is a List<VideoFormat>)
 data class VideoFormat(
     @SerializedName("format_id") val formatId: String = "",
     @SerializedName("quality") val quality: String = "",
@@ -21,7 +23,7 @@ data class VideoFormat(
     @SerializedName("filesize") val filesize: Long? = null,
     @SerializedName("tbr") val tbr: Double? = null,
     @SerializedName("url") val url: String? = null
-) {
+) : java.io.Serializable {
     fun isVideoAndAudio() = type == "video+audio"
     fun isVideoOnly() = type == "video"
     fun isAudioOnly() = type == "audio"

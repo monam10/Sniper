@@ -2,6 +2,7 @@
 <navigation
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/homeFragment">
 
@@ -9,21 +10,24 @@
         android:id="@+id/homeFragment"
         android:name="com.snapload.app.ui.home.HomeFragment"
         android:label="@string/nav_home"
-        tools:layout="@layout/fragment_home"
-        xmlns:tools="http://schemas.android.com/tools" />
+        tools:layout="@layout/fragment_home">
+        <!-- FIX: Added action to navigate from Home to Settings -->
+        <action
+            android:id="@+id/action_home_to_settings"
+            app:destination="@id/settingsFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/downloadsFragment"
         android:name="com.snapload.app.ui.downloads.DownloadsFragment"
         android:label="@string/nav_downloads"
-        tools:layout="@layout/fragment_downloads"
-        xmlns:tools="http://schemas.android.com/tools" />
+        tools:layout="@layout/fragment_downloads" />
 
+    <!-- FIX: Changed label from @string/settings_title (missing key) to @string/nav_settings -->
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.snapload.app.ui.settings.SettingsFragment"
-        android:label="@string/settings_title"
-        tools:layout="@layout/fragment_settings"
-        xmlns:tools="http://schemas.android.com/tools" />
+        android:label="@string/nav_settings"
+        tools:layout="@layout/fragment_settings" />
 
 </navigation>

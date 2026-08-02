@@ -23,15 +23,11 @@ jobs:
           distribution: 'temurin'
           cache: gradle
 
-      # تثبيت Gradle 8.6 عبر SDKMAN وتوليد gradlew wrapper في مجلد المشروع
-      - name: Install Gradle 8.6 and generate wrapper
-        run: |
-          curl -s "https://get.sdkman.io" | bash
-          source "$HOME/.sdkman/bin/sdkman-init.sh"
-          sdk install gradle 8.6
-          sdk use gradle 8.6
-          gradle wrapper --gradle-version 8.6
-          chmod +x gradlew
+      # FIX: Use the committed gradlew wrapper directly instead of SDKMAN.
+      # SDKMAN installation in CI is slow, fragile, and unreliable.
+      # The gradlew wrapper is now committed to the repo (gradle/wrapper/).
+      - name: Make gradlew executable
+        run: chmod +x gradlew
 
       - name: Build Debug APK
         run: ./gradlew assembleDebug --no-daemon --stacktrace
@@ -42,3 +38,7 @@ jobs:
           name: snapload-debug-apk
           path: app/build/outputs/apk/debug/*.apk
           retention-days: 30
+
+      - name: Run Unit Tests
+        run: ./gradlew test --no-daemon
+        continue-on-error: true

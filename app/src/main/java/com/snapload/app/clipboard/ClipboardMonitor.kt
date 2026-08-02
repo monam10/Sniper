@@ -4,9 +4,11 @@ import android.content.ClipboardManager
 import android.content.Context
 import android.content.SharedPreferences
 import com.snapload.app.utils.Constants
-import com.snapload.app.utils.Extensions.detectPlatform
-import com.snapload.app.utils.Extensions.extractUrls
-import com.snapload.app.utils.Extensions.isValidUrl
+// FIX: Extensions are top-level functions, not companion-object members.
+// Import them directly instead of using the "Extensions.xxx" syntax.
+import com.snapload.app.utils.detectPlatform
+import com.snapload.app.utils.extractUrls
+import com.snapload.app.utils.isValidUrl
 
 /**
  * يراقب الـ clipboard عند عودة التطبيق للأمام (onResume)

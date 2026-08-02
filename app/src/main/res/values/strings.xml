@@ -149,7 +149,7 @@
     <string name="loading">جاري التحميل...</string>
     <string name="unknown_error">حدث خطأ غير متوقع</string>
     <string name="copied">تم النسخ</string>
-    <string name="cache_cleared">تم مسح الكاش: %1$s</string>
+    <string name="cache_cleared">تم مسح الكاش بنجاح</string>
     <string name="update_success">تم تحديث yt-dlp بنجاح</string>
     <string name="update_failed">فشل التحديث</string>
 

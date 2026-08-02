@@ -133,7 +133,7 @@
     <string name="loading">Loading...</string>
     <string name="unknown_error">An unexpected error occurred</string>
     <string name="copied">Copied</string>
-    <string name="cache_cleared">Cache cleared: %1$s</string>
+    <string name="cache_cleared">Cache cleared successfully</string>
     <string name="update_success">yt-dlp updated successfully</string>
     <string name="update_failed">Update failed</string>
 
