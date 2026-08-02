@@ -238,16 +238,27 @@ def update_ytdlp():
 
 
 # ─── Keep-alive ────────────────────────────────────────────────────────────────
+# يمنع نوم/البرودة (cold start) على Render Free بضرب /ping كل 4 دقائق.
+# يستخدم عنوان السيرفر المنشور صراحةً كقيمة افتراضية، مع احترام RENDER_EXTERNAL_URL إن وُجد.
+KEEP_ALIVE_URL = os.environ.get(
+    "RENDER_EXTERNAL_URL", "https://sniper-cx9s.onrender.com"
+).rstrip("/")
+KEEP_ALIVE_INTERVAL = 240  # 4 دقائق
+
+
 def _keep_alive():
-    server_url = os.environ.get("RENDER_EXTERNAL_URL", "")
-    if not server_url:
-        return
+    ping_url = f"{KEEP_ALIVE_URL}/ping"
+    # تأخير أولي بسيط حتى يكون السيرفر جاهزاً للاستقبال
+    time.sleep(15)
     while True:
         try:
-            urllib.request.urlopen(f"{server_url}/ping", timeout=10)
+            req = urllib.request.Request(
+                ping_url, headers={"User-Agent": "SnapLoad-KeepAlive/1.0"}
+            )
+            urllib.request.urlopen(req, timeout=15)
         except Exception:
             pass
-        time.sleep(240)
+        time.sleep(KEEP_ALIVE_INTERVAL)
 
 
 def start_keep_alive():

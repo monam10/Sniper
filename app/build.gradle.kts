@@ -16,7 +16,7 @@ android {
         versionName = "1.0.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField("String", "API_BASE_URL", "\"https://media-downloader-api-xndz.onrender.com\"")
+        buildConfigField("String", "API_BASE_URL", "\"https://sniper-cx9s.onrender.com\"")
     }
 
     // ─── Signing Configs ───────────────────────────────────────────────────
@@ -123,7 +123,7 @@ dependencies {
     implementation("androidx.biometric:biometric:1.1.0")
 
     // ─── Widget ───────────────────────────────────────────────────────────
-    implementation("androidx.appwidget:appwidget:1.0.0-beta01")
+    // AppWidgetProvider is part of the Android framework — no extra dependency needed.
 
     // ─── Testing ──────────────────────────────────────────────────────────
     testImplementation("junit:junit:4.13.2")

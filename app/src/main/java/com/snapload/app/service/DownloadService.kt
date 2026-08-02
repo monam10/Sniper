@@ -11,7 +11,9 @@ import android.os.Build
 import android.os.Handler
 import android.os.IBinder
 import android.os.Looper
+import android.content.pm.ServiceInfo
 import androidx.core.app.NotificationCompat
+import androidx.core.app.ServiceCompat
 import com.snapload.app.R
 import com.snapload.app.data.db.AppDatabase
 import com.snapload.app.data.db.DownloadEntity
@@ -91,7 +93,14 @@ class DownloadService : Service() {
         val dmId = downloadManager.enqueue(request)
         activeDownloads[dmId] = dbId
 
-        startForeground(NOTIFICATION_ID_BASE + dbId.toInt(), buildProgressNotification(title, 0, dmId))
+        val fgsType = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
+            ServiceInfo.FOREGROUND_SERVICE_TYPE_DATA_SYNC else 0
+        ServiceCompat.startForeground(
+            this,
+            NOTIFICATION_ID_BASE + dbId.toInt(),
+            buildProgressNotification(title, 0, dmId),
+            fgsType
+        )
 
         serviceScope.launch {
             db.downloadDao().updateProgress(dbId, Constants.Status.DOWNLOADING, 0)
