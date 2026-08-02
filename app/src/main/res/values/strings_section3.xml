@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- إضافة هذه الـ strings إلى ملف strings.xml الأساسي -->
+<resources>
+    <!-- Home -->
+    <string name="app_name">SnapLoad</string>
+    <string name="paste_url_hint">الصق رابط الفيديو هنا…</string>
+    <string name="btn_analyze">تحليل الرابط</string>
+    <string name="btn_paste_analyze">لصق ومعالجة</string>
+    <string name="fetching_video_info">جاري جلب معلومات الفيديو…</string>
+    <string name="analyze">تحليل</string>
+    <string name="download_started">بدأ التحميل ✅</string>
+    <string name="downloads_queued">تمت إضافة التحميلات إلى الطابور</string>
+    <string name="more_qualities">المزيد من الجودات…</string>
+    <string name="clipboard_empty">الحافظة فارغة</string>
+    <string name="error_empty_url">يرجى إدخال رابط</string>
+    <string name="error_invalid_url">الرابط غير صالح</string>
+    <string name="error_no_url">لم يتم العثور على رابط</string>
+    <string name="error_generic">حدث خطأ، حاول مجدداً</string>
+
+    <!-- Quality Sheet -->
+    <string name="select_quality">اختر جودة التحميل</string>
+    <string name="tab_video">فيديو</string>
+    <string name="tab_audio">صوت فقط</string>
+    <string name="badge_best">الأفضل</string>
+    <string name="btn_download_all">تحميل الكل</string>
+    <string name="no_formats_available">لا تتوفر صيغ لهذه التبويبة</string>
+
+    <!-- Downloads -->
+    <string name="tab_downloading">جاري التحميل</string>
+    <string name="tab_completed">مكتمل</string>
+    <string name="tab_all">الكل</string>
+    <string name="no_downloads_yet">لا توجد تحميلات بعد</string>
+    <string name="download_deleted">تم حذف التحميل</string>
+    <string name="undo">تراجع</string>
+    <string name="delete_download">حذف التحميل</string>
+    <string name="delete_download_confirm">هل تريد حذف هذا التحميل وملفه؟</string>
+    <string name="delete">حذف</string>
+    <string name="cancel">إلغاء</string>
+    <string name="file_not_found">الملف غير موجود</string>
+    <string name="download_restarted">تمت إعادة التحميل</string>
+    <string name="downloading">جاري التحميل</string>
+    <string name="download_complete">اكتمل التحميل!</string>
+    <string name="download_failed">فشل التحميل</string>
+
+    <!-- Status -->
+    <string name="status_pending">في الانتظار</string>
+    <string name="status_downloading">جاري التحميل</string>
+    <string name="status_completed">مكتمل</string>
+    <string name="status_failed">فشل</string>
+    <string name="status_paused">متوقف</string>
+
+    <!-- Settings -->
+    <string name="settings">الإعدادات</string>
+    <string name="section_download">إعدادات التحميل</string>
+    <string name="download_path">مجلد الحفظ</string>
+    <string name="change">تغيير</string>
+    <string name="default_quality">الجودة الافتراضية</string>
+    <string name="wifi_only">التحميل على WiFi فقط</string>
+    <string name="concurrent_downloads">عدد التحميلات المتزامنة</string>
+    <string name="section_appearance">المظهر</string>
+    <string name="theme">الثيم</string>
+    <string name="dark">داكن</string>
+    <string name="light">فاتح</string>
+    <string name="auto">تلقائي</string>
+    <string name="language">اللغة</string>
+    <string name="section_server">إعدادات السيرفر</string>
+    <string name="api_url">رابط API السيرفر</string>
+    <string name="save">حفظ</string>
+    <string name="test_connection">اختبار الاتصال</string>
+    <string name="server_status">حالة السيرفر</string>
+    <string name="server_connected">متصل</string>
+    <string name="server_disconnected">غير متصل</string>
+    <string name="testing_connection">جاري الاختبار…</string>
+    <string name="section_info">معلومات</string>
+    <string name="app_version">إصدار التطبيق</string>
+    <string name="update_ytdlp">تحديث yt-dlp</string>
+    <string name="updating_ytdlp">جاري التحديث…</string>
+    <string name="clear_cache">مسح الكاش</string>
+    <string name="cache_cleared">تم مسح الكاش</string>
+    <string name="rate_app">تقييم التطبيق</string>
+    <string name="contact_us">تواصل معنا</string>
+    <string name="settings_saved">تم حفظ الإعدادات</string>
+    <string name="feature_coming_soon">قريباً…</string>
+
+    <!-- Misc -->
+    <string name="supported_platforms">المنصات المدعومة</string>
+    <string name="open">فتح</string>
+    <string name="share">مشاركة</string>
+    <string name="retry">إعادة المحاولة</string>
+</resources>

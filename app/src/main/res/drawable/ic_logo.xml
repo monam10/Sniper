@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp"
+    android:height="96dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+    <!-- Background circle -->
+    <path
+        android:fillColor="#1A1A2E"
+        android:pathData="M50,0A50,50 0,1 1,50 100A50,50 0,1 1,50 0Z" />
+    <!-- S shape / download arrow -->
+    <path
+        android:fillColor="#FF6B35"
+        android:pathData="M50,20 L50,55 L38,43 L35,46 L50,61 L65,46 L62,43 L50,55 L50,20 Z" />
+    <path
+        android:fillColor="#FF6B35"
+        android:pathData="M30,65 L70,65 L70,72 L30,72 Z" />
+</vector>

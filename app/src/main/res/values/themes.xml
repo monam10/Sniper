@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Base Application Theme -->
+    <style name="Theme.SnapLoad" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primary_dark</item>
+        <item name="colorOnPrimary">@color/text_primary_dark</item>
+        <item name="colorSecondary">@color/primary_light</item>
+        <item name="colorOnSecondary">@color/text_primary_dark</item>
+        <item name="android:statusBarColor">@color/background_dark</item>
+        <item name="android:navigationBarColor">@color/surface_dark</item>
+        <item name="android:windowBackground">@color/background_dark</item>
+    </style>
+
+    <!-- Splash Theme -->
+    <style name="Theme.SnapLoad.Splash" parent="Theme.SnapLoad">
+        <item name="android:windowBackground">@color/background_dark</item>
+        <item name="android:statusBarColor">@color/background_dark</item>
+    </style>
+
+    <!-- Transparent Dialog Theme for ShareHandlerActivity -->
+    <style name="Theme.SnapLoad.Transparent" parent="Theme.Material3.DayNight.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.6</item>
+        <item name="colorPrimary">@color/primary</item>
+    </style>
+
+    <!-- BottomSheetDialog Theme -->
+    <style name="Theme.SnapLoad.BottomSheet" parent="Theme.Material3.DayNight.BottomSheetDialog">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="bottomSheetStyle">@style/Widget.SnapLoad.BottomSheet</item>
+    </style>
+
+    <style name="Widget.SnapLoad.BottomSheet" parent="Widget.Material3.BottomSheet">
+        <item name="android:background">@color/surface_dark</item>
+    </style>
+
+</resources>

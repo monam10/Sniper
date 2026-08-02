@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App -->
+    <string name="app_name">SnapLoad</string>
+    <string name="app_version">الإصدار %1$s</string>
+
+    <!-- Home Fragment -->
+    <string name="paste_link_hint">الصق رابط الفيديو هنا...</string>
+    <string name="analyze_button">تحليل الرابط</string>
+    <string name="paste_and_analyze">لصق ومعالجة</string>
+    <string name="paste">لصق</string>
+    <string name="clear">مسح</string>
+    <string name="fetching_info">جاري جلب معلومات الفيديو...</string>
+    <string name="supported_platforms">المنصات المدعومة</string>
+    <string name="more_qualities">المزيد من الجودات...</string>
+    <string name="download_video">تحميل الفيديو</string>
+    <string name="download_audio_only">تحميل الصوت فقط</string>
+    <string name="clip_detected">📋 تم رصد رابط %1$s، هل تريد تحليله؟</string>
+    <string name="analyze">تحليل</string>
+    <string name="dismiss">تجاهل</string>
+    <string name="invalid_url">الرابط غير صالح أو غير مدعوم</string>
+    <string name="no_internet">لا يوجد اتصال بالإنترنت</string>
+    <string name="error_fetching">خطأ في جلب المعلومات: %1$s</string>
+    <string name="recent_history">محفوظات البحث</string>
+    <string name="clear_history">مسح السجل</string>
+    <string name="no_history">لا توجد محفوظات بعد</string>
+
+    <!-- Quality Bottom Sheet -->
+    <string name="choose_quality">اختر جودة التحميل</string>
+    <string name="tab_video">فيديو</string>
+    <string name="tab_audio">صوت فقط</string>
+    <string name="best_quality">الأفضل</string>
+    <string name="download_all">تحميل الكل</string>
+    <string name="download">تحميل</string>
+    <string name="no_formats">لا توجد صيغ متاحة</string>
+
+    <!-- Downloads Fragment -->
+    <string name="downloads_title">التحميلات</string>
+    <string name="tab_downloading">جاري التحميل</string>
+    <string name="tab_completed">مكتمل</string>
+    <string name="tab_all">الكل</string>
+    <string name="no_downloads">لا توجد تحميلات بعد\nالصق رابط من الصفحة الرئيسية</string>
+    <string name="open_file">فتح</string>
+    <string name="share_file">مشاركة</string>
+    <string name="delete_download">حذف</string>
+    <string name="retry_download">إعادة المحاولة</string>
+    <string name="delete_confirm">هل تريد حذف هذا التحميل؟</string>
+    <string name="delete_file_too">حذف الملف أيضاً</string>
+    <string name="undo">تراجع</string>
+    <string name="download_deleted">تم حذف التحميل</string>
+    <string name="status_downloading">⬇️ %1$d%% - %2$s</string>
+    <string name="status_completed">✅ مكتمل</string>
+    <string name="status_failed">❌ فشل</string>
+    <string name="status_pending">⏳ في الانتظار</string>
+    <string name="status_paused">⏸️ متوقف</string>
+
+    <!-- Settings Fragment -->
+    <string name="settings_title">الإعدادات</string>
+    <string name="section_download">إعدادات التحميل</string>
+    <string name="save_folder">مجلد الحفظ</string>
+    <string name="change_folder">تغيير</string>
+    <string name="default_quality_label">الجودة الافتراضية</string>
+    <string name="wifi_only">التحميل على WiFi فقط</string>
+    <string name="concurrent_downloads">عدد التحميلات المتزامنة</string>
+    <string name="section_appearance">المظهر</string>
+    <string name="theme_label">الثيم</string>
+    <string name="theme_dark">داكن</string>
+    <string name="theme_light">فاتح</string>
+    <string name="theme_auto">تلقائي</string>
+    <string name="language_label">اللغة</string>
+    <string name="lang_arabic">عربي</string>
+    <string name="lang_english">English</string>
+    <string name="section_server">إعدادات السيرفر</string>
+    <string name="server_url_label">رابط API السيرفر</string>
+    <string name="test_connection">اختبار الاتصال</string>
+    <string name="server_status_connected">🟢 متصل</string>
+    <string name="server_status_disconnected">🔴 غير متصل</string>
+    <string name="server_status_testing">🟡 جاري الاختبار...</string>
+    <string name="section_info">معلومات</string>
+    <string name="update_ytdlp">تحديث yt-dlp</string>
+    <string name="clear_cache">مسح الكاش</string>
+    <string name="rate_app">تقييم التطبيق</string>
+    <string name="contact_us">تواصل معنا</string>
+    <string name="app_lock">قفل التطبيق</string>
+    <string name="app_lock_hint">حماية التطبيق ببصمة الإصبع أو الرقم السري</string>
+
+    <!-- Notifications -->
+    <string name="notif_downloading">جاري التحميل</string>
+    <string name="notif_completed">اكتمل التحميل ✅</string>
+    <string name="notif_failed">فشل التحميل ❌</string>
+    <string name="notif_cancel">إلغاء</string>
+    <string name="notif_open">فتح</string>
+    <string name="notif_share">مشاركة</string>
+    <string name="notif_retry">إعادة المحاولة</string>
+
+    <!-- Share Handler -->
+    <string name="analyzing_link">جاري تحليل الرابط...</string>
+    <string name="share_cancel">إلغاء</string>
+
+    <!-- General -->
+    <string name="ok">موافق</string>
+    <string name="cancel">إلغاء</string>
+    <string name="error">خطأ</string>
+    <string name="loading">جاري التحميل...</string>
+    <string name="unknown_error">حدث خطأ غير متوقع</string>
+    <string name="copied">تم النسخ</string>
+    <string name="cache_cleared">تم مسح الكاش: %1$s</string>
+    <string name="update_success">تم تحديث yt-dlp بنجاح</string>
+    <string name="update_failed">فشل التحديث</string>
+</resources>

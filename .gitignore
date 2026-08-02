@@ -1,0 +1,98 @@
+# ─── Android Project ────────────────────────────────────────────────────────
+*.iml
+.gradle/
+local.properties
+.idea/
+.DS_Store
+build/
+captures/
+.externalNativeBuild/
+.cxx/
+*.apk
+*.aab
+*.ap_
+*.dex
+
+# Android Keystore (لا ترفعها أبداً!)
+*.keystore
+*.jks
+*.p12
+
+# Signing configs
+keystore.properties
+signing.properties
+
+# Generated files
+app/src/main/assets/
+app/src/main/res/values/strings_generated.xml
+
+# Gradle
+gradle-app.setting
+!gradle-wrapper.jar
+.gradletasknamecache
+gradle/wrapper/gradle-wrapper.properties
+
+# NDK
+*.so
+obj/
+
+# Navigation safe args generated
+app/build/generated/
+
+# ─── Python / Server ────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+
+# Virtual environments
+venv/
+env/
+.venv/
+.env/
+ENV/
+
+# Environment variables
+.env
+.env.local
+.env.production
+server/.env
+
+# Flask / Gunicorn
+*.log
+*.pid
+
+# yt-dlp cookies / cache
+cookies.txt
+*.ytdl
+.cache/
+
+# ─── IDE / OS ────────────────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# JetBrains IDEs
+.idea/
+*.iml
+out/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# ─── GitHub Actions ──────────────────────────────────────────────────────────
+# لا تخفِ workflows — هي مهمة
+# لكن خفِ secrets إذا كانت local
+
+# ─── Misc ───────────────────────────────────────────────────────────────────
+*.tmp
+*.bak
+*.swp
+*.swo
+*.orig
