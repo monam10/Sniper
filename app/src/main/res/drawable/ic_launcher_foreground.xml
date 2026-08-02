@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Foreground content sits within the inner 72x72 safe zone (margin 18) -->
+    <group android:scaleX="0.62"
+        android:scaleY="0.62"
+        android:translateX="20.5"
+        android:translateY="20.5">
+        <!-- Download arrow -->
+        <path
+            android:fillColor="#FF6B35"
+            android:pathData="M50,20 L50,55 L38,43 L35,46 L50,61 L65,46 L62,43 L50,55 L50,20 Z" />
+        <!-- Base bar -->
+        <path
+            android:fillColor="#FF6B35"
+            android:pathData="M30,65 L70,65 L70,72 L30,72 Z" />
+    </group>
+</vector>

@@ -4,6 +4,51 @@
     <string name="app_name">SnapLoad</string>
     <string name="app_version">الإصدار %1$s</string>
 
+    <!-- Bottom Navigation -->
+    <string name="nav_home">الرئيسية</string>
+    <string name="nav_downloads">التحميلات</string>
+    <string name="nav_settings">الإعدادات</string>
+
+    <!-- Home screen buttons & labels -->
+    <string name="hint_enter_url">الصق رابط الفيديو هنا...</string>
+    <string name="btn_paste">لصق</string>
+    <string name="btn_clear">مسح</string>
+    <string name="btn_download">تحميل الفيديو</string>
+    <string name="btn_download_audio">تحميل الصوت فقط</string>
+    <string name="label_video">فيديو</string>
+    <string name="label_audio">صوت</string>
+    <string name="loading_video_info">جاري جلب معلومات الفيديو...</string>
+
+    <!-- Downloads screen -->
+    <string name="empty_downloads">لا توجد تحميلات بعد</string>
+    <string name="empty_downloads_sub">الصق رابطاً من الصفحة الرئيسية لبدء التحميل</string>
+
+    <!-- Download item menu -->
+    <string name="action_open">فتح</string>
+    <string name="action_share">مشاركة</string>
+    <string name="action_retry">إعادة المحاولة</string>
+    <string name="action_delete">حذف</string>
+
+    <!-- Share handler -->
+    <string name="share_loading">جاري المعالجة...</string>
+
+    <!-- Settings screen -->
+    <string name="section_about">حول التطبيق</string>
+    <string name="pref_save_folder">مجلد الحفظ</string>
+    <string name="pref_change_folder">تغيير</string>
+    <string name="pref_default_quality">الجودة الافتراضية</string>
+    <string name="pref_wifi_only">التحميل عبر WiFi فقط</string>
+    <string name="pref_concurrent_downloads">عدد التحميلات المتزامنة</string>
+    <string name="pref_theme">المظهر</string>
+    <string name="pref_language">اللغة</string>
+    <string name="pref_api_url">رابط السيرفر</string>
+    <string name="btn_test_connection">اختبار الاتصال</string>
+    <string name="pref_update_ytdlp">تحديث yt-dlp</string>
+    <string name="pref_clear_cache">مسح الذاكرة المؤقتة</string>
+    <string name="pref_rate_app">قيّم التطبيق</string>
+    <string name="pref_contact_us">تواصل معنا</string>
+    <string name="pref_app_version">إصدار التطبيق</string>
+
     <!-- Home Fragment -->
     <string name="paste_link_hint">الصق رابط الفيديو هنا...</string>
     <string name="analyze_button">تحليل الرابط</string>
@@ -128,7 +173,7 @@
     <string name="delete_download_confirm">هل تريد حذف هذا التحميل وملفه؟</string>
     <string name="delete">حذف</string>
     <string name="file_not_found">الملف غير موجود</string>
-    <string name="download_restarted">تمت إعادة التحميل</string>
+    <string name="download_restarted">تمت إعادة ا��تحميل</string>
     <string name="downloading">جاري التحميل</string>
     <string name="download_complete">اكتمل التحميل!</string>
     <string name="download_failed">فشل التحميل</string>
