@@ -30,12 +30,13 @@
                 android:contentDescription="Thumbnail" />
 
             <ProgressBar
-                android:id="@+id/progressBar"
+                android:id="@+id/progressShare"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:indeterminateTint="@color/primary" />
 
             <TextView
+                android:id="@+id/tvShareStatus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -45,7 +46,7 @@
                 android:fontFamily="sans-serif-medium" />
 
             <TextView
-                android:id="@+id/tvVideoTitle"
+                android:id="@+id/tvShareUrl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"

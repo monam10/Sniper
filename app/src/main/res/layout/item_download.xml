@@ -28,7 +28,7 @@
                 android:layout_height="@dimen/thumbnail_small">
 
                 <ImageView
-                    android:id="@+id/ivThumbnail"
+                    android:id="@+id/ivDownloadThumbnail"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:scaleType="centerCrop"
@@ -55,7 +55,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/tvTitle"
+                    android:id="@+id/tvDownloadTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:maxLines="2"
@@ -65,7 +65,7 @@
                     android:fontFamily="sans-serif-medium" />
 
                 <TextView
-                    android:id="@+id/tvQualityExt"
+                    android:id="@+id/tvDownloadMeta"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
@@ -73,7 +73,7 @@
                     android:textSize="12sp" />
 
                 <TextView
-                    android:id="@+id/tvStatus"
+                    android:id="@+id/tvDownloadStatus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
@@ -83,7 +83,7 @@
 
             <!-- Options button -->
             <ImageButton
-                android:id="@+id/ibOptions"
+                android:id="@+id/btnOptions"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
@@ -94,7 +94,7 @@
 
         <!-- Progress Bar (shown only during downloading) -->
         <ProgressBar
-            android:id="@+id/progressBar"
+            android:id="@+id/progressDownload"
             style="@style/Widget.AppCompat.ProgressBar.Horizontal"
             android:layout_width="match_parent"
             android:layout_height="6dp"

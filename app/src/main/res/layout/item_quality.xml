@@ -11,7 +11,7 @@
 
     <!-- Quality Icon -->
     <ImageView
-        android:id="@+id/ivQualityIcon"
+        android:id="@+id/ivFormatIcon"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:src="@drawable/ic_download_circle"
@@ -42,7 +42,7 @@
 
             <!-- "Best" Badge -->
             <TextView
-                android:id="@+id/tvBestBadge"
+                android:id="@+id/badgeBest"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -57,13 +57,28 @@
                 android:visibility="gone" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/tvExtAndSize"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
-            android:textColor="@color/text_secondary_dark"
-            android:textSize="12sp" />
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tvExt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_secondary_dark"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tvSize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textColor="@color/text_secondary_dark"
+                android:textSize="12sp" />
+        </LinearLayout>
     </LinearLayout>
 
     <!-- Download Button -->
