@@ -150,12 +150,11 @@ class VideoRepositoryTest {
         info: VideoInfo,
         exception: Exception?
     ): NetworkResult<VideoInfo> {
-        return if (exception != null) {
-            NetworkResult.Error(exception.localizedMessage ?: "خطأ في الاتصال")
-        } else if (info.error != null) {
-            NetworkResult.Error(info.error)
-        } else {
-            NetworkResult.Success(info)
+        val error = info.error
+        return when {
+            exception != null -> NetworkResult.Error(exception.localizedMessage ?: "خطأ في الاتصال")
+            error != null -> NetworkResult.Error(error)
+            else -> NetworkResult.Success(info)
         }
     }
 
@@ -177,11 +176,12 @@ class VideoRepositoryTest {
         response: DownloadUrlResponse,
         exception: Exception?
     ): NetworkResult<DownloadUrlResponse> {
+        val error = response.error
         return when {
-            exception != null         -> NetworkResult.Error(exception.localizedMessage ?: "خطأ")
-            response.error != null    -> NetworkResult.Error(response.error)
+            exception != null          -> NetworkResult.Error(exception.localizedMessage ?: "خطأ")
+            error != null              -> NetworkResult.Error(error)
             response.directUrl == null -> NetworkResult.Error("لا يوجد رابط تحميل متاح")
-            else                      -> NetworkResult.Success(response)
+            else                       -> NetworkResult.Success(response)
         }
     }
 
