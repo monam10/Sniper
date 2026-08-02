@@ -11,10 +11,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.io.File
 import java.util.concurrent.TimeUnit
 
-/**
- * ApiClient المحدّث مع NetworkCacheInterceptor و disk cache
- * استبدل الملف الأصلي بهذا الملف.
- */
 object ApiClient {
 
     private val loggingInterceptor = HttpLoggingInterceptor().apply {
@@ -22,30 +18,41 @@ object ApiClient {
                 else HttpLoggingInterceptor.Level.NONE
     }
 
-    private lateinit var retrofit: Retrofit
-    private lateinit var _apiService: ApiService
+    @Volatile
+    private var _apiService: ApiService? = null
 
+    /**
+     * Must be called from Application.onCreate() before any Repository is used.
+     * Safe to call multiple times (idempotent).
+     */
     fun init(context: Context) {
-        val cacheDir = File(context.cacheDir, "http_cache")
-        val cacheSize = 10L * 1024L * 1024L // 10 MB
+        if (_apiService != null) return
+        synchronized(this) {
+            if (_apiService != null) return
 
-        val okHttpClient = OkHttpClient.Builder()
-            .addNetworkInterceptor(NetworkCacheInterceptor())
-            .addInterceptor(loggingInterceptor)
-            .cache(Cache(cacheDir, cacheSize))
-            .connectTimeout(30, TimeUnit.SECONDS)
-            .readTimeout(90, TimeUnit.SECONDS)
-            .writeTimeout(30, TimeUnit.SECONDS)
-            .build()
+            val cacheDir = File(context.cacheDir, "http_cache")
+            val cacheSize = 10L * 1024L * 1024L // 10 MB
 
-        retrofit = Retrofit.Builder()
-            .baseUrl(BuildConfig.API_BASE_URL + "/")
-            .client(okHttpClient)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
+            val okHttpClient = OkHttpClient.Builder()
+                .addNetworkInterceptor(NetworkCacheInterceptor())
+                .addInterceptor(loggingInterceptor)
+                .cache(Cache(cacheDir, cacheSize))
+                .connectTimeout(30, TimeUnit.SECONDS)
+                .readTimeout(90, TimeUnit.SECONDS)
+                .writeTimeout(30, TimeUnit.SECONDS)
+                .build()
 
-        _apiService = retrofit.create(ApiService::class.java)
+            val retrofit = Retrofit.Builder()
+                .baseUrl(BuildConfig.API_BASE_URL + "/")
+                .client(okHttpClient)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+
+            _apiService = retrofit.create(ApiService::class.java)
+        }
     }
 
-    val apiService: ApiService get() = _apiService
+    val apiService: ApiService
+        get() = _apiService
+            ?: error("ApiClient not initialized. Call ApiClient.init(context) from Application.onCreate().")
 }
